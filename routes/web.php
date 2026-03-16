@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
 
 // Auth routes
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
@@ -23,6 +24,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/registrations/{registration}/print', [RegistrationController::class, 'print'])->name('registrations.print');
     Route::patch('/registrations/{registration}/checkout', [RegistrationController::class, 'checkout'])->name('registrations.checkout');
 
+    // TRANSACTIONS
+
+    Route::get(
+        '/transactions/create/{registration}',
+        [TransactionController::class, 'create']
+    )->name('transactions.create');
+
+    Route::post(
+        '/transactions',
+        [TransactionController::class, 'store']
+    )->name('transactions.store');
+    
     // Rooms - all staff can view and update status
     Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
     Route::patch('/rooms/{room}/status', [RoomController::class, 'updateStatus'])->name('rooms.update-status');

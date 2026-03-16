@@ -64,7 +64,7 @@ class RoomController extends Controller
     public function create()
     {
         // $this->authorize('admin');
-        
+
         $roomTypes = RoomType::all();
         return view('rooms.create', compact('roomTypes'));
     }

@@ -8,10 +8,26 @@ use Carbon\Carbon;
 class Registration extends Model
 {
     protected $fillable = [
-        'registration_number', 'guest_id', 'room_id', 'receptionist_id',
-        'num_guests', 'num_rooms', 'check_in_date', 'arrival_time',
-        'check_out_date', 'departure_date', 'deposit_box_number',
-        'issued_by', 'total_price', 'status', 'notes',
+        'registration_number',
+        'guest_id',
+        'room_id',
+        'receptionist_id',
+        'num_guests',
+        'num_rooms',
+        'check_in_date',
+        'arrival_time',
+        'check_out_date',
+        'departure_date',
+        'deposit_box_number',
+        'issued_by',
+        'total_price',
+        'status',
+        'notes',
+        'payment_method',
+        'payment_status',
+        'card_number',
+        'card_holder_name',
+        'card_expired'
     ];
 
     protected $casts = [
@@ -20,6 +36,11 @@ class Registration extends Model
         'departure_date' => 'date',
         'total_price' => 'decimal:2',
     ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 
     public function guest()
     {

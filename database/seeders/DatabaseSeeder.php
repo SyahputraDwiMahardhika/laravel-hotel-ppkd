@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // Create Admin
         User::create([
             'name' => 'Administrator',
-            'email' => 'admin@hotelgrande.com',
+            'email' => 'admin@hotelppkd.com',
             'password' => Hash::make('admin123'),
             'role' => 'administrator',
             'is_active' => true,
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // Create Receptionists
         User::create([
             'name' => 'Budi Santoso',
-            'email' => 'budi@hotelgrande.com',
+            'email' => 'budi@hotelppkd.com',
             'password' => Hash::make('budi123'),
             'role' => 'receptionist',
             'is_active' => true,
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Sari Dewi',
-            'email' => 'sari@hotelgrande.com',
+            'email' => 'sari@hotelppkd.com',
             'password' => Hash::make('sari123'),
             'role' => 'receptionist',
             'is_active' => true,

@@ -25,8 +25,8 @@ class RegistrationController extends Controller
             $search = $request->search;
             $query->whereHas('guest', function ($q) use ($search) {
                 $q->where('full_name', 'like', "%$search%")
-                  ->orWhere('id_card_number', 'like', "%$search%")
-                  ->orWhere('passport_number', 'like', "%$search%");
+                    ->orWhere('id_card_number', 'like', "%$search%")
+                    ->orWhere('passport_number', 'like', "%$search%");
             })->orWhere('registration_number', 'like', "%$search%");
         }
 
@@ -97,6 +97,14 @@ class RegistrationController extends Controller
                 'issued_by' => $request->issued_by,
                 'total_price' => $totalPrice,
                 'notes' => $request->notes,
+                // TAMBAHAN PEMBAYARAN
+                'payment_method' => $request->payment_method,
+                'payment_status' => $request->payment_status,
+                'card_number' => $request->card_number,
+                'card_holder_name' => $request->card_holder_name,
+                'card_expired' => $request->card_expired,
+
+
                 'status' => 'active',
             ]);
 
