@@ -97,12 +97,19 @@ class RegistrationController extends Controller
                 'issued_by' => $request->issued_by,
                 'total_price' => $totalPrice,
                 'notes' => $request->notes,
-                // TAMBAHAN PEMBAYARAN
+                // PAYMENT
                 'payment_method' => $request->payment_method,
                 'payment_status' => $request->payment_status,
+
+                // CREDIT CARD
                 'card_number' => $request->card_number,
                 'card_holder_name' => $request->card_holder_name,
                 'card_expired' => $request->card_expired,
+
+                // BANK TRANSFER
+                'bank_name' => $request->bank_name,
+                'bank_account_name' => $request->bank_account_name,
+                'bank_account_number' => $request->bank_account_number,
 
 
                 'status' => 'active',

@@ -23,11 +23,20 @@ class Registration extends Model
         'total_price',
         'status',
         'notes',
+        // PAYMENT
         'payment_method',
         'payment_status',
+
+
+        // CREDIT CARD
         'card_number',
         'card_holder_name',
-        'card_expired'
+        'card_expired',
+
+        // BANK TRANSFER
+        'bank_name',
+        'bank_account_name',
+        'bank_account_number'
     ];
 
     protected $casts = [

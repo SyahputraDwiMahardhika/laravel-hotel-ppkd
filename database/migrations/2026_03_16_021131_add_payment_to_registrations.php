@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('payment_method')->nullable();
             $table->string('payment_status')->nullable();
 
+            $table->string('bank_name')->nullable();
+            $table->string('bank_account_name')->nullable();
+            $table->string('bank_account_number')->nullable();
+
             $table->string('card_number')->nullable();
             $table->string('card_holder_name')->nullable();
             $table->string('card_expired')->nullable();

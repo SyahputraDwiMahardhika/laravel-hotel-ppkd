@@ -324,6 +324,32 @@
 
                 </div>
 
+                <!-- DATA TRANSFER BANK -->
+                <div id="transfer_section" style="display:none; margin-top:20px;">
+                    <hr>
+                    <h6 style="color:#C9A84C;">Detail Transfer Bank</h6>
+
+                    <div class="row g-3">
+
+                        <div class="col-md-4">
+                            <label class="form-label">Nama Bank</label>
+                            <input type="text" name="bank_name" class="form-control"
+                                placeholder="Contoh: BCA / Mandiri">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Nama Pemilik Rekening</label>
+                            <input type="text" name="bank_account_name" class="form-control">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Nomor Rekening</label>
+                            <input type="text" name="bank_account_number" class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -345,12 +371,19 @@
     <script>
         function toggleCard() {
             const method = document.getElementById('payment_method').value;
-            const section = document.getElementById('credit_card_section');
+
+            const credit = document.getElementById('credit_card_section');
+            const transfer = document.getElementById('transfer_section');
+
+            credit.style.display = 'none';
+            transfer.style.display = 'none';
 
             if (method === 'credit_card') {
-                section.style.display = 'block';
-            } else {
-                section.style.display = 'none';
+                credit.style.display = 'block';
+            }
+
+            if (method === 'transfer') {
+                transfer.style.display = 'block';
             }
         }
 

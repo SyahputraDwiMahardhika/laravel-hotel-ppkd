@@ -201,10 +201,36 @@
             Please guarantee this booking with credit card number with clear copy of the card both sides and card holder
             signature.
         </p>
-        @if ($registration->payment_method == 'credit_card')
+        @if ($registration->payment_method == 'transfer')
             <p><b>Bank Transfer</b></p>
 
             <table>
+                <tr>
+                    <td class="label">Bank Name</td>
+                    <td class="colon">:</td>
+                    <td>{{ $registration->bank_name }}</td>
+                </tr>
+
+                <tr>
+                    <td class="label">Account Name</td>
+                    <td class="colon">:</td>
+                    <td>{{ $registration->bank_account_name }}</td>
+                </tr>
+
+                <tr>
+                    <td class="label">Account Number</td>
+                    <td class="colon">:</td>
+                    <td>{{ $registration->bank_account_number }}</td>
+                </tr>
+            </table>
+        @endif
+
+        <div class="line"></div>
+        @if ($registration->payment_method == 'credit_card')
+            <p><b>Reservation guaranteed by the following credit card</b></p>
+
+            <table>
+
                 <tr>
                     <td class="label">Card Number</td>
                     <td class="colon">:</td>
@@ -212,15 +238,9 @@
                 </tr>
 
                 <tr>
-                    <td class="label">Card Holder Name</td>
+                    <td class="label">Card Holder</td>
                     <td class="colon">:</td>
                     <td>{{ $registration->card_holder_name }}</td>
-                </tr>
-
-                <tr>
-                    <td class="label">Card Type</td>
-                    <td class="colon">:</td>
-                    <td>Credit Card</td>
                 </tr>
 
                 <tr>
@@ -230,50 +250,13 @@
                 </tr>
 
                 <tr>
-                    <td class="label">Card Holder Signature</td>
+                    <td class="label">Signature</td>
                     <td class="colon">:</td>
                     <td>____________________</td>
                 </tr>
+
             </table>
         @endif
-
-        <div class="line"></div>
-
-        <p><b>Reservation guaranteed by the following credit card</b></p>
-
-        <table>
-
-            <tr>
-                <td class="label">Card Number</td>
-                <td class="colon">:</td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td class="label">Card Holder Name</td>
-                <td class="colon">:</td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td class="label">Card Type</td>
-                <td class="colon">:</td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td class="label">Expired Date</td>
-                <td class="colon">:</td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td class="label">Card Holder Signature</td>
-                <td class="colon">:</td>
-                <td></td>
-            </tr>
-
-        </table>
 
         <div class="policy">
 
